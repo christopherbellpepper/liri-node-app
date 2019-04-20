@@ -16,14 +16,18 @@ if (searchPrompt === "movie-this") {
     axios
         .get(`http://www.omdbapi.com/?apikey=b77b8907&t=${movieSearch}`)
         .then(function(movieResponse) {
-            console.log(movieResponse.data.Title);
-            console.log(movieResponse.data.Year);
-            console.log(movieResponse.data.Ratings[0].Value);
-            console.log(movieResponse.data.Ratings[1].Value);
-            console.log(movieResponse.data.Country);
-            console.log(movieResponse.data.Language);
-            console.log(movieResponse.data.Plot);
-            console.log(movieResponse.data.Actors);
+            console.log("-------------------------------------");
+            console.log(`Title: ${movieResponse.data.Title}`);
+            console.log(`Year: ${movieResponse.data.Year}`);
+            console.log(`IMDb Rating: ${movieResponse.data.Ratings[0].Value}`);
+            console.log(`Rotten Tomatoes: ${movieResponse.data.Ratings[1].Value}`);
+            console.log(`Country: ${movieResponse.data.Country}`);
+            console.log(`Language: ${movieResponse.data.Language}`);
+            console.log(`Plot: ${movieResponse.data.Plot}`);
+            console.log(`Actors: ${movieResponse.data.Actors}`);
+            console.log("-------------------------------------");
+
+            //need code for "Mr. Nobody" returned as a default for not entering a movie name
         })
     };
 
@@ -64,3 +68,13 @@ if (searchPrompt === "spotify-this-song") {
             console.log("------------------------------------");
         })
     };
+
+//      4. `node liri.js do-what-it-says`
+
+//      * Using the `fs` Node package, LIRI will take the text inside of random.txt and then 
+//      use it to call one of LIRI's commands.
+
+//      * It should run `spotify-this-song` for "I Want it That Way," as follows the text in 
+//      `random.txt`.
+
+//      * Edit the text in random.txt to test out the feature for movie-this and concert-this.
